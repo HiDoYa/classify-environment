@@ -1,4 +1,4 @@
-# Classify Environment Pictures using Lenet Neural Net Architecture
+# Classify Environment Images using Lenet Neural Net Architecture
 Convolutional neural network using LeNet architecture to classify a picture into 4 environment categories: forest, ocean, mountain, city. This uses Keras with tensorflow backend and is written in Python.  
 Around 800 labeled sets of pictures per each category, giving a total of 3200 total sets for training and testing. Labelled sets were scraped from google images and processed with OpenCV.  
 First attempt of the model gave an accuracy of 61.47% in 20 epochs.  
@@ -14,5 +14,6 @@ To use, run: `python3 lenet_driver.py [options]`
 ### First attempt:
 ![alt text](screenshots/first_attempt.png)  
 
+#### Sample Classification
 ![alt text](screenshots/sample1.png)
 ![alt text](screenshots/sample2.png)
