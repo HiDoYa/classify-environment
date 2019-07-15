@@ -72,6 +72,8 @@ for i in np.random.choice(np.arange(0, len(testLabels)), size=(10,)):
     print("Predicted: {}, Actual: {}".format(
         Environment.prediction_to_str(prediction[0]), \
         Environment.prediction_to_str(np.argmax(testLabels[i]))))
+    for prob in probs[0]:
+        print(prob*100)
     cv2.imshow("Environment", image)
     cv2.waitKey(0)
 

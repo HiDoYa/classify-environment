@@ -15,5 +15,11 @@ To use, run: `python3 lenet_driver.py [options]`
 ![alt text](screenshots/first_attempt.png)  
 
 #### Sample Classification
-![alt text](screenshots/sample1.png)
-![alt text](screenshots/sample2.png)
+![alt text](screenshots/sample1.png)<br>
+city=73.03%, forest=2.20%, mountain=24.66%, ocean=0.11%
+<br><br>
+![alt text](screenshots/sample2.png)<br>
+city=2.09%, forest=97.05%, mountain=0.80%, ocean=0.06%
+<br><br>
+![alt text](screenshots/sample3.png)<br>
+city=0.07%, forest=1.28%, mountain=0.03%, ocean=98.62%
