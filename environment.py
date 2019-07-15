@@ -28,3 +28,16 @@ class Environment:
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
 
         return ((X_train, y_train), (X_test, y_test))
+
+    @staticmethod
+    def prediction_to_str(prediction_int):
+        if prediction_int == 0:
+            return "City"
+        elif prediction_int == 1:
+            return "Forest"
+        elif prediction_int == 2:
+            return "Mountain"
+        elif prediction_int == 3:
+            return "Ocean"
+
+        return "Error"
