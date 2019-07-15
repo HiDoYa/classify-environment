@@ -37,9 +37,9 @@ testLabels = np_utils.to_categorical(_testLabels, 4)
 
 # Initialize optimizer and model
 print("Loading model...")
-opt = SGD(lr = 0.01) # Stochastic gradient descent
+opt = SGD(lr=0.01) # Stochastic gradient descent
 model = LeNet.build(numChannels=3, imgRows=128, imgCols=128, numClasses=4,
-    weightsPath=weightsPath if args["load_model"] > 0 else None) # Load weights
+                    weightsPath=weightsPath if args["load_model"] > 0 else None)
 model.compile(loss="categorical_crossentropy", optimizer=opt, metrics=["accuracy"])
 
 # Trains if not loading parameters to CNN
@@ -59,15 +59,17 @@ if args["save_model"] > 0:
 # Randomly select a few picture to test on
 for i in np.random.choice(np.arange(0, len(testLabels)), size=(10,)):
     # Make prediction on picture
-    probs = model.predict(testData[np.newaxis, i])
+    # Use np.newaxis since testData[i] would give one less dimension
+    probs = model.predict(testData[np.newaxis, i]) 
     prediction = probs.argmax(axis=1)
     
     # Get image from test data
     image = (testData[i] * 255).astype("uint8")
-    #image = cv2.merge(image)
-    cv2.putText(image, Environment.prediction_to_str(prediction), (5,20), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 255, 0), 2)
-    print("Predicted: {}, Actual: {}".format(Environment.prediction_to_str(prediction[0]), \
-                                             Environment.prediction_to_str(np.argmax(testLabels[i]))))
+    cv2.putText(image, Environment.prediction_to_str(prediction[0]), \
+            (5,20), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 255, 0), 2)
+    print("Predicted: {}, Actual: {}".format(
+        Environment.prediction_to_str(prediction[0]), \
+        Environment.prediction_to_str(np.argmax(testLabels[i]))))
     cv2.imshow("Environment", image)
     cv2.waitKey(0)
 

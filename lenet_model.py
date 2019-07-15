@@ -8,6 +8,8 @@ from keras import backend as K
 
 # Builds LeNet model
 # Layers: input -> conv -> relu -> pool -> conv -> relu -> pool -> fc -> relu -> fc
+
+
 class LeNet:
     @staticmethod
     def build(numChannels, imgRows, imgCols, numClasses, activation="relu", weightsPath=None):
@@ -32,3 +34,4 @@ class LeNet:
             model.load_weights(weightsPath)
 
         return model
+        
