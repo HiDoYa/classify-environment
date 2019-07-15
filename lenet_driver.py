@@ -6,6 +6,7 @@ from keras import backend as K
 import numpy as np
 import argparse
 import cv2
+import os
 
 # Arguments
 ap = argparse.ArgumentParser()
@@ -54,6 +55,7 @@ if args["load_model"] < 0:
 # Save model (if requested)
 if args["save_model"] > 0:
     print("Saving model to file...")
+    os.mkdir("output")
     model.save_weights(weightsPath, overwrite=True)
 
 # Randomly select a few picture to test on
