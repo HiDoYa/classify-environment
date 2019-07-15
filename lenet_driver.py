@@ -1,5 +1,5 @@
 from lenet_model import LeNet
-from environment import Environment 
+from environment import Environment
 from keras.optimizers import SGD
 from keras.utils import np_utils
 from keras import backend as K
@@ -14,7 +14,7 @@ ap.add_argument("-l", "--load-model", type=int, default=-1, help="(Optional) Whe
 ap.add_argument("-w", "--weights", type=str, help="(Optional) Path of weights file")
 args = vars(ap.parse_args())
 
-weightsPath = "outputs/" + args["weights"] + ".hdf5"
+weightsPath = "output/" + args["weights"] + ".hdf5"
 
 # Load data (gives correct dimensions)
 print("Loading training and testing sets...")
@@ -45,10 +45,10 @@ model.compile(loss="categorical_crossentropy", optimizer=opt, metrics=["accuracy
 # Trains if not loading parameters to CNN
 if args["load_model"] < 0:
     print("Training...")
-    model.fit(trainData, trainLabels, batch_size=128, epochs=20, verbose=1)
+    model.fit(trainData, trainLabels, batch_size=32, epochs=20, verbose=1)
 
     print("Evaluating...")
-    (loss, accuracy) = model.evaluate(testData, testLabels, batch_size=128, verbose=1)
+    (loss, accuracy) = model.evaluate(testData, testLabels, batch_size=32, verbose=1)
     print("Accuracy: {:.2f}%".format(accuracy * 100))
 
 # Save model (if requested)
