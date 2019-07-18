@@ -48,9 +48,10 @@ if args["load_model"] < 0:
     print("Training...")
     model.fit(trainData, trainLabels, batch_size=32, epochs=20, verbose=1)
 
-    print("Evaluating...")
-    (loss, accuracy) = model.evaluate(testData, testLabels, batch_size=32, verbose=1)
-    print("Accuracy: {:.2f}%".format(accuracy * 100))
+print("Evaluating...")
+(loss, accuracy) = model.evaluate(testData, testLabels, batch_size=32, verbose=1)
+print("Accuracy: {}%".format(accuracy * 100))
+print("Loss: {}".format(loss))
 
 # Save model (if requested)
 if args["save_model"] > 0:
