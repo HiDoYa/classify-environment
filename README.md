@@ -2,7 +2,6 @@
 Convolutional neural network using LeNet architecture to classify a picture into 4 environment categories: forest, ocean, mountain, city. This uses Keras with tensorflow backend and is written in Python. <br><br>
 There are ~800 labeled sets of pictures per each category, giving a total of 3200 total sets for training and testing. Labelled sets were scraped from google images and processed with OpenCV.  <br><br>
 I was available to achieve an accuracy of ~76% on my test set after playing with various parameters and layers. <br><br>
-TODO: Image augmentation for more data
 
 ## Use:
 To use, run: `python3 lenet_driver.py [options]`  
